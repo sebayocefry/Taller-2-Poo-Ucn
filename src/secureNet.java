@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 // Clase PC
 class PC {
    
@@ -50,7 +51,7 @@ class PC {
      @Override
      public String toString() {
         return "PC [iD=" + iD + ", iP=" + iP + ", sistemaOperativo=" + sistemaOperativo + ", puertos=" + puertos + "]";
-     }
+    }
     
 }
 
