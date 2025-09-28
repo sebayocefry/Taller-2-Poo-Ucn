@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -204,7 +205,7 @@ class Sistema{
         else return "Alto";
     }
 
-    
+
     //cargas comunes de archivos.txt
     public void cargarPCs(String archivo)throws FileNotFoundException{ 
         File arch = new File(archivo);
@@ -338,6 +339,23 @@ class Sistema{
 
         }
     
+    }
+
+    public void escanearPc(String clavePc, String username, String nombreArch) throws IOException{
+        PC pc = buscarPc(clavePc);
+
+        if (pc == null){
+            System.out.println("El pc no existe");
+            return;
+        }
+
+        String nivelRiesgo = calcularNivelRiesgo(pc);
+
+        long tiempoMillis = System.currentTimeMillis();
+
+        
+
+
     }
 }
 
