@@ -174,10 +174,37 @@ class Usuario{
 
 // Clase Sistema
 class Sistema{
-    private ArrayList<PC> listaPc;
-    private ArrayList<Usuario> listaUsuarios;
-    private ArrayList<Vulnerabilidad> listaVulnerabilidades;
+    private ArrayList<PC> listaPc =new ArrayList<>();
+    private ArrayList<Usuario> listaUsuarios =new ArrayList<>();
+    private ArrayList<Vulnerabilidad> listaVulnerabilidades =new ArrayList<>();
 
+    //Devovler pc como objeto para usarlo en operaciones mas adelante y no reptir codigo  o evitar errores por obj no creados en el main
+    // el metodo sera capaz de devovler el objto aunque se busque por id o ip 
+    public PC buscarPc(String p){
+        if(p!=null){
+            String buscador= p.trim();
+            for (PC elem : listaPc) {
+            if(elem.getiD().equalsIgnoreCase(buscador) || elem.getiP().equalsIgnoreCase(buscador)){
+                return elem;
+            }
+        }  
+        }
+         return null;
+              
+    }
+
+    public String calcularNivelRiesgo(PC pc){
+        int suma = 0;
+        for (Puerto elem : pc.getPuertos()) {
+            suma += elem.getVulnerabilidades().size();
+        }
+        String nivel;
+        if(suma<=1) return "Bajo";
+        else if(suma<=2) return "Medio";
+        else return "Alto";
+    }
+
+    
     //cargas comunes de archivos.txt
     public void cargarPCs(String archivo)throws FileNotFoundException{ 
         File arch = new File(archivo);
