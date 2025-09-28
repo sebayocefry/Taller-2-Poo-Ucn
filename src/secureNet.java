@@ -242,6 +242,46 @@ class Sistema{
         lector.close();
     }
 
+    //opciones ADMI
+
+    public void clasificarPcsVul(){
+        for (PC pc : listaPc) {
+            int suma= 0;
+            // esto no es necesario porque el enunciado pide solo el pc con su numero de puerto y nivel de vul, pero hacieno la lista puedo agregar el detalle de que vulnerabilidades fue
+            ArrayList <String> nombreVulnerabilidades = new ArrayList<>(); 
+            for (Puerto puertos : pc.getPuertos()) {
+                //le agregamos al sumador el tamano de la lista de vulne del objeto
+                suma += puertos.getVulnerabilidades().size(); 
+                for (Vulnerabilidad v : puertos.getVulnerabilidades()) {
+                    nombreVulnerabilidades.add(v.getNombreVulnerabilidad());// su nombre 
+                }               
+            }
+            String nivelVulne;
+            if (suma <=1){
+                nivelVulne = "Bajo";
+            }else if (suma<=2) {
+                nivelVulne = "Medio";
+            }else{
+                nivelVulne = "Alto";
+            }
+
+            System.out.println("PC ID: " + pc.getiD());
+            System.out.println("IP: " + pc.getiP());
+            System.out.println("SO: " + pc.getSistemaOperativo());
+            System.out.println("Nivel de riesgo: " + nivelVulne);
+
+            System.out.println("NOMBRE DE LAS VULNERABILIDADES");
+
+            for (String elem : nombreVulnerabilidades) {
+                System.err.println("--: " + elem);
+                
+            }
+            System.out.println("---------------------------");
+        }
+    }
+
+
+
     //opciones para usario 
 
     public void mostrarPcsUser(){
