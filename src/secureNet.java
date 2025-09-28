@@ -257,7 +257,7 @@ class Sistema{
             System.err.println("PUERTOS:");
             for (Puerto puertos : elem.getPuertos()) {
                 String estado;
-                if(puertos.isEstadoPuerto()){
+                if(puertos.isEstadoPuerto()){// podria haber hecho una comparacion ternaria por decir asi para ahorrar codigo: puertos=(isEstadoPuerto) ? valorVerdadero:valorFalso
                     estado = "ABIERTO";
                 }else{
                     estado = "Cerrado";
