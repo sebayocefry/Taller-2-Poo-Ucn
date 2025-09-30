@@ -1,71 +1,73 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
 
 
 // Clase PC
 class PC {
-   
+
     private String iD;
     private String iP;
     private String sistemaOperativo;
     private ArrayList<Puerto> puertos;
 
-     public PC(String iD, String iP, String sistemaOperativo) {
+    public PC(String iD, String iP, String sistemaOperativo) {
         this.iD = iD;
         this.iP = iP;
         this.sistemaOperativo = sistemaOperativo;
         this.puertos = new ArrayList<>();
     }
 
-     public String getiD() {
-         return iD;
-     }
+    public String getiD() {
+        return iD;
+    }
 
-     public void setiD(String iD) {
-         this.iD = iD;
-     }
+    public void setiD(String iD) {
+        this.iD = iD;
+    }
 
-     public String getiP() {
-         return iP;
-     }
+    public String getiP() {
+        return iP;
+    }
 
-     public void setiP(String iP) {
-         this.iP = iP;
-     }
+    public void setiP(String iP) {
+        this.iP = iP;
+    }
 
-     public String getSistemaOperativo() {
-         return sistemaOperativo;
-     }
+    public String getSistemaOperativo() {
+        return sistemaOperativo;
+    }
 
-     public void setSistemaOperativo(String sistemaOperativo) {
-         this.sistemaOperativo = sistemaOperativo;
-     }
+    public void setSistemaOperativo(String sistemaOperativo) {
+        this.sistemaOperativo = sistemaOperativo;
+    }
 
-     public ArrayList<Puerto> getPuertos() {
-         return puertos;
-     }
+    public ArrayList<Puerto> getPuertos() {
+        return puertos;
+    }
 
-     public void setPuertos(ArrayList<Puerto> puertos) {
-         this.puertos = puertos;
-     }
+    public void setPuertos(ArrayList<Puerto> puertos) {
+        this.puertos = puertos;
+    }
 
-     @Override
-     public String toString() {
+    @Override
+    public String toString() {
         return "PC [iD=" + iD + ", iP=" + iP + ", sistemaOperativo=" + sistemaOperativo + ", puertos=" + puertos + "]";
     }
-    
+
 }
 
 // Clase Puerto
 class Puerto {
-    
+
     private int numeroPuero;
     private boolean estadoPuerto;
     private ArrayList<Vulnerabilidad> vulnerabilidades;
-    
+
     public Puerto(int numeroPuero, boolean estadoPuerto) {
         this.numeroPuero = numeroPuero;
         this.estadoPuerto = estadoPuerto;
@@ -95,43 +97,52 @@ class Puerto {
     public void setVulnerabilidades(ArrayList<Vulnerabilidad> vulnerabilidades) {
         this.vulnerabilidades = vulnerabilidades;
     }
+
     @Override
     public String toString() {
         return "Puerto [numeroPuero=" + numeroPuero + ", estadoPuerto=" + estadoPuerto + ", vulnerabilidades="
                 + vulnerabilidades + "]";
     }
 
-    
 }
 
 // Clase Vulnerabilidad
-class Vulnerabilidad{ 
+class Vulnerabilidad {
+
     private int puertoV;
     private String nombreVulnerabilidad;
     private String descripcionV;
+
     public Vulnerabilidad(int puertoV, String nombreVulnerabilidad, String descripcionV) {
         this.puertoV = puertoV;
         this.nombreVulnerabilidad = nombreVulnerabilidad;
         this.descripcionV = descripcionV;
     }
+
     public int getPuertoV() {
         return puertoV;
     }
+
     public void setPuertoV(int puertoV) {
         this.puertoV = puertoV;
     }
+
     public String getNombreVulnerabilidad() {
         return nombreVulnerabilidad;
     }
+
     public void setNombreVulnerabilidad(String nombreVulnerabilidad) {
         this.nombreVulnerabilidad = nombreVulnerabilidad;
     }
+
     public String getDescripcionV() {
         return descripcionV;
     }
+
     public void setDescripcionV(String descripcionV) {
         this.descripcionV = descripcionV;
     }
+
     @Override
     public String toString() {
         return "Vulnerabilidad [puertoV=" + puertoV + ", nombreVulnerabilidad=" + nombreVulnerabilidad
@@ -140,33 +151,42 @@ class Vulnerabilidad{
 }
 
 // Clase Usuario
-class Usuario{
+class Usuario {
+
     private String username;
     private String passwor;
     private String rolUser;
+
     public Usuario(String username, String passwor, String rolUser) {
         this.username = username;
         this.passwor = passwor;
         this.rolUser = rolUser;
     }
+
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
+
     public String getPasswor() {
         return passwor;
     }
+
     public void setPasswor(String passwor) {
         this.passwor = passwor;
     }
+
     public String getRolUser() {
         return rolUser;
     }
+
     public void setRolUser(String rolUser) {
         this.rolUser = rolUser;
     }
+
     @Override
     public String toString() {
         return "Usuario [username=" + username + ", passwor=" + passwor + ", rolUser=" + rolUser + "]";
@@ -174,57 +194,59 @@ class Usuario{
 }
 
 // Clase Sistema
-class Sistema{
-    private ArrayList<PC> listaPc =new ArrayList<>();
-    private ArrayList<Usuario> listaUsuarios =new ArrayList<>();
-    private ArrayList<Vulnerabilidad> listaVulnerabilidades =new ArrayList<>();
+class Sistema {
+
+    private ArrayList<PC> listaPc = new ArrayList<>();
+    private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+    private ArrayList<Vulnerabilidad> listaVulnerabilidades = new ArrayList<>();
 
     //Devovler pc como objeto para usarlo en operaciones mas adelante y no reptir codigo  o evitar errores por obj no creados en el main
     // el metodo sera capaz de devovler el objto aunque se busque por id o ip 
-    public PC buscarPc(String p){
-        if(p!=null){
-            String buscador= p.trim();
+    public PC buscarPc(String p) {
+        if (p != null) {
+            String buscador = p.trim();
             for (PC elem : listaPc) {
-            if(elem.getiD().equalsIgnoreCase(buscador) || elem.getiP().equalsIgnoreCase(buscador)){
-                return elem;
+                if (elem.getiD().equalsIgnoreCase(buscador) || elem.getiP().equalsIgnoreCase(buscador)) {
+                    return elem;
+                }
             }
-        }  
         }
-         return null;
-              
+        return null;
+
     }
 
-    public String calcularNivelRiesgo(PC pc){
+    public String calcularNivelRiesgo(PC pc) {
         int suma = 0;
         for (Puerto elem : pc.getPuertos()) {
             suma += elem.getVulnerabilidades().size();
         }
         String nivel;
-        if(suma<=1) return "Bajo";
-        else if(suma<=2) return "Medio";
-        else return "Alto";
+        if (suma <= 1) {
+            return "Bajo";
+        } else if (suma <= 2) {
+            return "Medio";
+        } else {
+            return "Alto";
+        }
     }
 
-
     //cargas comunes de archivos.txt
-    public void cargarPCs(String archivo)throws FileNotFoundException{ 
+    public void cargarPCs(String archivo) throws FileNotFoundException {
         File arch = new File(archivo);
         Scanner lector = new Scanner(arch);
 
-        while (lector.hasNextLine()){
+        while (lector.hasNextLine()) {
             String linea = lector.nextLine().trim();
             String[] partes = linea.split("\\|");//java confunde el separador con el or 
             listaPc.add(new PC(partes[0], partes[1], partes[2]));
         }
         lector.close();
     }
-    
 
-
-    public void cargarPuertos(String archivo)throws FileNotFoundException{ 
+    public void cargarPuertos(String archivo) throws FileNotFoundException {
         File file = new File(archivo);
         Scanner lector = new Scanner(file);
-        while(lector.hasNextLine()){
+        while (lector.hasNextLine()) {
             String linea = lector.nextLine().trim();
             String[] partes = linea.split("\\|");
             String iDpc = partes[0];// punto para no perder la relacion entre los pc
@@ -234,34 +256,36 @@ class Sistema{
             // me muevo como un pc en la lista de pc iniciada comparo por id hasta encontrar una coincidencia, cuando la encuentro llamo a la lista puertos (sigue)
             // agrego partes 1 y 2 
             for (PC elem : listaPc) {
-                if(elem.getiD().equals(iDpc)){
+                if (elem.getiD().equals(iDpc)) {
                     elem.getPuertos().add(new Puerto(nPuerto, estadoPuerto));
                     break;
                 }
-                
+
             }
 
         }
         lector.close();
 
     }
-    public void cargarUsuarios(String archivo)throws FileNotFoundException{
+
+    public void cargarUsuarios(String archivo) throws FileNotFoundException {
         File file = new File(archivo);
         Scanner lector = new Scanner(file);
 
-        while(lector.hasNextLine()){
+        while (lector.hasNextLine()) {
             String linea = lector.nextLine().trim();
-            String [] partes = linea.split(";");
+            String[] partes = linea.split(";");
             listaUsuarios.add(new Usuario(partes[0], partes[1], partes[2]));
         }
 
         lector.close();
     }
-    public void cargarVulnerabilidades(String archivo)throws FileNotFoundException{
+
+    public void cargarVulnerabilidades(String archivo) throws FileNotFoundException {
         File arch = new File(archivo);
         Scanner lector = new Scanner(arch);
-        
-        while(lector.hasNextLine()){
+
+        while (lector.hasNextLine()) {
             String linea = lector.nextLine().trim();
             String[] partes = linea.split("\\|");
             listaVulnerabilidades.add(new Vulnerabilidad(Integer.parseInt(partes[0]), partes[1], partes[2]));// el parseint y no el valueOf, para que me lo convierta un entero primitivo
@@ -271,25 +295,24 @@ class Sistema{
     }
 
     //opciones ADMI
-
-    public void clasificarPcsVul(){
+    public void clasificarPcsVul() {
         for (PC pc : listaPc) {
-            int suma= 0;
+            int suma = 0;
             // esto no es necesario porque el enunciado pide solo el pc con su numero de puerto y nivel de vul, pero hacieno la lista puedo agregar el detalle de que vulnerabilidades fue
-            ArrayList <String> nombreVulnerabilidades = new ArrayList<>(); 
+            ArrayList<String> nombreVulnerabilidades = new ArrayList<>();
             for (Puerto puertos : pc.getPuertos()) {
                 //le agregamos al sumador el tamano de la lista de vulne del objeto
-                suma += puertos.getVulnerabilidades().size(); 
+                suma += puertos.getVulnerabilidades().size();
                 for (Vulnerabilidad v : puertos.getVulnerabilidades()) {
                     nombreVulnerabilidades.add(v.getNombreVulnerabilidad());// su nombre 
-                }               
+                }
             }
             String nivelVulne;
-            if (suma <=1){
+            if (suma <= 1) {
                 nivelVulne = "Bajo";
-            }else if (suma<=2) {
+            } else if (suma <= 2) {
                 nivelVulne = "Medio";
-            }else{
+            } else {
                 nivelVulne = "Alto";
             }
 
@@ -302,49 +325,46 @@ class Sistema{
 
             for (String elem : nombreVulnerabilidades) {
                 System.err.println("--: " + elem);
-                
+
             }
             System.out.println("---------------------------");
         }
     }
-
-
 
     //opciones para usario 
-
-    public void mostrarPcsUser(){
+    public void mostrarPcsUser() {
         //imprimir ID, IP, SO
         // sin metodo toatring porque quiero imprimir ciertos datos y no todos como en el usuario 
-        if (listaPc.isEmpty()){
+        if (listaPc.isEmpty()) {
             System.out.println("La lista se encuentra vacia");
-        }else{
+        } else {
             for (PC elem : listaPc) {
-            System.out.println("PC ID: "+elem.getiD());
-            System.out.println("PC IP: "+elem.getiP());
-            System.out.println("PC SO: "+elem.getSistemaOperativo());
-            System.err.println("PUERTOS:");
-            for (Puerto puertos : elem.getPuertos()) {
-                String estado;
-                if(puertos.isEstadoPuerto()){// podria haber hecho una comparacion ternaria por decir asi para ahorrar codigo: puertos=(isEstadoPuerto) ? valorVerdadero:valorFalso
-                    estado = "ABIERTO";
-                }else{
-                    estado = "Cerrado";
+                System.out.println("PC ID: " + elem.getiD());
+                System.out.println("PC IP: " + elem.getiP());
+                System.out.println("PC SO: " + elem.getSistemaOperativo());
+                System.err.println("PUERTOS:");
+                for (Puerto puertos : elem.getPuertos()) {
+                    String estado;
+                    if (puertos.isEstadoPuerto()) {// podria haber hecho una comparacion ternaria por decir asi para ahorrar codigo: puertos=(isEstadoPuerto) ? valorVerdadero:valorFalso
+                        estado = "ABIERTO";
+                    } else {
+                        estado = "Cerrado";
+                    }
+                    System.out.println("ESTADO DEL PUERTO " + puertos.getNumeroPuero() + ": " + estado);
                 }
-                System.out.println("ESTADO DEL PUERTO "+puertos.getNumeroPuero()+ ": " + estado);
-            }
-            System.out.println();
-            System.out.println("---------------------------");
+                System.out.println();
+                System.out.println("---------------------------");
 
-         }
+            }
 
         }
-    
+
     }
 
-    public void escanearPc(String clavePc, String username, String nombreArch) throws IOException{
+    public void escanearPc(String clavePc, String username, String nombreArch) throws IOException {
         PC pc = buscarPc(clavePc);
 
-        if (pc == null){
+        if (pc == null) {
             System.out.println("El pc no existe");
             return;
         }
@@ -353,9 +373,48 @@ class Sistema{
 
         long tiempoMillis = System.currentTimeMillis();
 
-        
+        // Preparar texto del reporte
+        StringBuilder escribirTxt = new StringBuilder();
+        escribirTxt.append("----- REPORTE DE ESCANEO Secure Net -----\n");
+        escribirTxt.append("Tiempo (ms): ").append(tiempoMillis).append("\n");
+        escribirTxt.append("Usuario: ").append(username).append("\n");
+        escribirTxt.append("PC ID: ").append(pc.getiD()).append("\n");
+        escribirTxt.append("PC IP: ").append(pc.getiP()).append("\n");
+        escribirTxt.append("PC SO: ").append(pc.getSistemaOperativo()).append("\n");
+        escribirTxt.append("Nivel de riesgo PC: ").append(nivelRiesgo).append("\n");
+        escribirTxt.append("Puertos PC:\n");
 
+        for (Puerto p : pc.getPuertos()) {
+            String estado;
+            if(p.isEstadoPuerto()){
+                estado = "Abierto";
+            }else{
+                estado = "Cerrado";
+            }
+            escribirTxt.append("  - Puerto ").append(p.getNumeroPuero()).append(" : ").append(estado);
+
+            if (!p.getVulnerabilidades().isEmpty()) {
+                escribirTxt.append("  (Vulnerabilidades: ");
+                for (int i = 0; i < p.getVulnerabilidades().size(); i++) {
+                    Vulnerabilidad v = p.getVulnerabilidades().get(i);
+                    escribirTxt.append(v.getNombreVulnerabilidad());
+                    if (i < p.getVulnerabilidades().size() - 1) {
+                        escribirTxt.append(", ");
+                    }
+                }
+                escribirTxt.append(")");
+            }
+            escribirTxt.append("\n");
+        }
+
+        escribirTxt.append("------------------------------\n\n");
+
+        // Escribir en el archivo reportes.txt
+        try (FileWriter fw = new FileWriter(nombreArch, true)) {
+            fw.write(escribirTxt.toString());
+        }
+
+        System.out.println("Escaneo completado. Reporte guardado en: " + nombreArch);
 
     }
 }
-
