@@ -1,0 +1,14 @@
+----- REPORTE DE ESCANEO Secure Net -----
+Tiempo (ms): 1760208591708
+Usuario: admin
+PC ID: PC004
+PC IP: 172.25.10.25
+PC SO: CentOS 8
+Nivel de riesgo PC: Alto
+Puertos PC:
+  - Puerto 22 : Abierto  (Vulnerabilidades: SSH Brute Force)
+  - Puerto 80 : Abierto  (Vulnerabilidades: HTTP Directory Traversal)
+  - Puerto 443 : Abierto  (Vulnerabilidades: SSL/TLS Weak Cipher)
+  - Puerto 8080 : Abierto  (Vulnerabilidades: HTTP Proxy Misconfiguration)
+------------------------------
+

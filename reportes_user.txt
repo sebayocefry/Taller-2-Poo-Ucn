@@ -1,0 +1,28 @@
+----- REPORTE DE ESCANEO Secure Net -----
+Tiempo (ms): 1760208358714
+Usuario: bob
+PC ID: PC001
+PC IP: 10.0.5.10
+PC SO: Windows 11 Pro
+Nivel de riesgo PC: Alto
+Puertos PC:
+  - Puerto 22 : Cerrado  (Vulnerabilidades: SSH Brute Force)
+  - Puerto 80 : Abierto  (Vulnerabilidades: HTTP Directory Traversal)
+  - Puerto 443 : Abierto  (Vulnerabilidades: SSL/TLS Weak Cipher)
+  - Puerto 3389 : Abierto  (Vulnerabilidades: RDP BlueKeep)
+------------------------------
+
+----- REPORTE DE ESCANEO Secure Net -----
+Tiempo (ms): 1760208498536
+Usuario: bob
+PC ID: PC004
+PC IP: 172.25.10.25
+PC SO: CentOS 8
+Nivel de riesgo PC: Alto
+Puertos PC:
+  - Puerto 22 : Abierto  (Vulnerabilidades: SSH Brute Force)
+  - Puerto 80 : Abierto  (Vulnerabilidades: HTTP Directory Traversal)
+  - Puerto 443 : Abierto  (Vulnerabilidades: SSL/TLS Weak Cipher)
+  - Puerto 8080 : Abierto  (Vulnerabilidades: HTTP Proxy Misconfiguration)
+------------------------------
+

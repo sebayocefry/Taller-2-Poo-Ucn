@@ -1,0 +1,14 @@
+----- REPORTE DE ESCANEO Secure Net -----
+Tiempo (ms): 1760147685408
+Usuario: admin
+PC ID: PC010
+PC IP: 203.0.113.55
+PC SO: openSUSE Leap 15.4
+Nivel de riesgo PC: Alto
+Puertos PC:
+  - Puerto 22 : Abierto  (Vulnerabilidades: SSH Brute Force)
+  - Puerto 80 : Abierto  (Vulnerabilidades: HTTP Directory Traversal)
+  - Puerto 443 : Abierto  (Vulnerabilidades: SSL/TLS Weak Cipher)
+  - Puerto 631 : Abierto  (Vulnerabilidades: CUPS Remote Code Execution)
+------------------------------
+
